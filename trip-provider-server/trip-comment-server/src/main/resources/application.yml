@@ -1,0 +1,22 @@
+
+server:
+  port: 8084
+
+spring:
+  application:
+    name: trip-comment-server
+
+  data:
+    #mongodb
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/wolf2w
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+logging:
+  level:
+    org.springframework.data.mongodb.core: DEBUG
+

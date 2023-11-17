@@ -1,0 +1,41 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: trip-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让gateway可以发现nacos中的微服务
+      routes:
+        - id: article_route
+          uri: lb://trip-article-server
+          predicates:
+            - Path=/article/**
+          filters:
+            - StripPrefix=1
+
+        - id: member_route
+          uri: lb://trip-member-server
+          predicates:
+            - Path=/member/**
+          filters:
+            - StripPrefix=1
+
+        - id: search_route
+          uri: lb://trip-search-server
+          predicates:
+            - Path=/search/**
+          filters:
+            - StripPrefix=1
+
+        - id: comment_route
+          uri: lb://trip-comment-server
+          predicates:
+            - Path=/comment/**
+          filters:
+            - StripPrefix=1
