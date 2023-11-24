@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: everywhere-gateway
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: 587a7d4d-c64f-41cc-b029-5eb7967c9ded
+        file-extension: yaml
+      discovery:
+        namespace: 587a7d4d-c64f-41cc-b029-5eb7967c9ded
+  profiles:
+    active: dev

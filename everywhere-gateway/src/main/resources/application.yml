@@ -1,0 +1,24 @@
+#server:
+#  port: 10003
+#spring:
+#  application:
+#    name: everywhere-gateway
+#  # 分布式配置
+#  cloud:
+#    nacos:
+#      server-addr: localhost:8848
+#      config:
+#        namespace: 587a7d4d-c64f-41cc-b029-5eb7967c9ded
+#      discovery:
+#        namespace: 587a7d4d-c64f-41cc-b029-5eb7967c9ded
+#    gateway:
+#      routes:
+#        - id: everywhere-user            # 路由的唯一标识
+#          uri: lb://everywhere-user   # 如果断言成功，将要转发去的地址
+#          predicates:                 # 断言，满足所有断言，才会进行转发
+#            - Path=/user/**        # 注意：这是使用= 不是：
+#      discovery:
+#        locator:
+#          enabled: true
+#
+#
