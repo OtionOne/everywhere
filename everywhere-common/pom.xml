@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>everywhere-common-core</module>
+        <module>everywhere-common-redis</module>
     </modules>
 
     <properties>

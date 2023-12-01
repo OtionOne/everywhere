@@ -12,7 +12,7 @@ if(token&&user){
 
 //api ip与端口
 var serverUrlMap = {
-    member : "http://localhost:8081",
+    member : "http://localhost:10002",
     article : "http://localhost:8082",
     data : "http://localhost:8083",
     comment : "http://localhost:8084",
@@ -21,8 +21,8 @@ var serverUrlMap = {
 
 }
 function getServiceUrl(service){
-    return serverUrlMap[service]
-    //return "http://localhost:9000/" + service;
+    // return serverUrlMap[service]
+    return "http://localhost:10001/" + service;
 }
 
 //异步请求

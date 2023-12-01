@@ -2,7 +2,7 @@
 
 //api ip与端口
 var serverUrlMap = {
-    member : "http://localhost:8081",
+    member : "http://localhost:10002",
     article : "http://localhost:8082",
     data : "http://localhost:8083",
     comment : "http://localhost:8084",

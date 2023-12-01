@@ -1,7 +1,9 @@
 package com.powernode.everywhere.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.powernode.everywhere.common.core.util.JsonResult;
 import com.powernode.everywhere.user.domain.UserInfo;
 
 public interface UserService extends IService<UserInfo> {
+    JsonResult<Boolean> PhoneExist(String phone);
 }

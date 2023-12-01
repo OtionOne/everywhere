@@ -9,5 +9,13 @@ spring:
         file-extension: yaml
       discovery:
         namespace: 587a7d4d-c64f-41cc-b029-5eb7967c9ded
+    gateway:
+       globalcors:
+          corsConfigurations:
+            '[/**]':
+               allowCredentials: true
+               allowedOriginPatterns: "*"
+               allowedMethods: "*"
+               allowedHeaders: "*"
   profiles:
     active: dev
