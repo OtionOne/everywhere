@@ -6,4 +6,6 @@ import com.powernode.everywhere.user.domain.UserInfo;
 
 public interface UserService extends IService<UserInfo> {
     JsonResult<Boolean> PhoneExist(String phone);
+
+    JsonResult register(UserInfo userInfo, String code);
 }

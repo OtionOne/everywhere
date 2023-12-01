@@ -28,7 +28,7 @@ var vue = new Vue({
                     }
                 })
             } else {
-                $('#inputPhone').next().text('手机号码格式不正确').show()
+                $('#inputPhone').next().text('手机号码格式不正确').show();
             }
         },
         //注册-发送短信
@@ -37,7 +37,7 @@ var vue = new Vue({
             if (_this.hasClass('disabled')) {
             } else {
                 var self = _this;
-                var count = 10;
+                var count = 30;
                 self.addClass('disabled')
                 self.text(count + '秒后重新获取')
                 var timer = setInterval(function () {
@@ -52,7 +52,7 @@ var vue = new Vue({
                 }, 1000);
 
                 var phone = $("#phone").val();
-                $.get(getServiceUrl("member") + "/userInfos/sendVerifyCode", {phone:phone}, function (data) {
+                $.get(getServiceUrl("user") + "/sms/send", {phone:phone}, function (data) {
                     if(data.code == 200){
                         popup("发送成功")
                     }else{
@@ -63,7 +63,7 @@ var vue = new Vue({
         },
         //注册-完成注册
         regist:function (){
-            $.post(getServiceUrl("member") + "/userInfos/regist", $("#editForm").serialize(), function (data) {
+            $.get(getServiceUrl("user") + "/regist", $("#editForm").serialize(), function (data) {
                 if(data.code == 200){
                     location.href = "/login.html";
                 }else{

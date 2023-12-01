@@ -26,4 +26,10 @@ public class UserController {
     public JsonResult<Boolean> PhoneExist(String phone){
         return userService.PhoneExist(phone);
     }
+
+
+    @GetMapping("/regist")
+    public JsonResult register(UserInfo user,String verifyCode){
+        return userService.register(user,verifyCode);
+    }
 }
