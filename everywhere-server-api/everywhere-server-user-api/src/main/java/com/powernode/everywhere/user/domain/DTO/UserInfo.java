@@ -1,4 +1,4 @@
-package com.powernode.everywhere.user.domain;
+package com.powernode.everywhere.user.domain.DTO;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

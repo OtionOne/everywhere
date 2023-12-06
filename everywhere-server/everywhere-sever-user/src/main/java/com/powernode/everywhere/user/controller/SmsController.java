@@ -1,6 +1,7 @@
 package com.powernode.everywhere.user.controller;
 
 import com.powernode.everywhere.common.core.util.JsonResult;
+import com.powernode.everywhere.user.anno.LoginRequired;
 import com.powernode.everywhere.user.service.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ExecutionException;
 
+@LoginRequired
 @RestController
 @RequestMapping("/user/sms")
 public class SmsController {
 
     @Autowired
     private SmsService smsService;
+
     @GetMapping("/send")
     public JsonResult sendSms(String phone){
         smsService.sendSms(phone);

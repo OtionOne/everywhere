@@ -31,11 +31,11 @@ public class SmsServiceImpl implements SmsService {
             //已经发送过了
             throw new CoolDownException("信息过热,冷却中...");
         }
+        log.info("验证码为:{}", code);
         redisCache.setCacheObject("REGISTER:PHONE:" + phone, code, 30L, TimeUnit.SECONDS);
 //        短信发送
 //        假装已经发送成功
 //        this.send(code);
-        log.info("验证码为:{}", code);
     }
 
     @Override

@@ -20,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 public class RedisCache {
     public final RedisTemplate redisTemplate;
 
+    public final static String CALENDAR = "calendar";
+
     public RedisCache(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }

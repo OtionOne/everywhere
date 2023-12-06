@@ -14,6 +14,7 @@
     <modules>
         <module>everywhere-common-core</module>
         <module>everywhere-common-redis</module>
+        <module>everywhere-common-auth</module>
     </modules>
 
     <properties>

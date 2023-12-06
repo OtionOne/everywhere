@@ -19,3 +19,5 @@ sms:
   AccessKey_ID: LTAI5t9Xe2gKRXtSeMxs1RWD
   AccessKey_Secret: ZPJXx5zmJdi68rqM9o6RBv4ltmNZKs
   End_Point: dysmsapi.aliyuncs.com
+jwt:
+  secret: 2528548908
