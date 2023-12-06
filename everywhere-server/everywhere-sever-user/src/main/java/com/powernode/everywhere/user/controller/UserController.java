@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@LoginRequired
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,7 +20,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @LoginRequired
     @GetMapping("/list")
     public List<UserInfo> ListAll(){
         return userService.list();

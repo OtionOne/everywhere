@@ -1,4 +1,4 @@
-package com.powernode.everywhere.user.interceptor;
+package com.powernode.everywhere.auth.interceptor;
 
 import com.powernode.everywhere.common.core.exception.CoolDownException;
 import com.powernode.everywhere.common.redis.utils.RedisCache;
@@ -23,11 +23,14 @@ import java.util.concurrent.TimeUnit;
 public class LoginInterceptor implements HandlerInterceptor {
 
 
-    @Autowired
-    private RedisCache redisCache;
+    private final RedisCache redisCache;
 
     @Value("${jwt.secret}")
     private String secret;
+
+    public LoginInterceptor(RedisCache redisCache) {
+        this.redisCache = redisCache;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
