@@ -94,7 +94,7 @@ var vue = new Vue({
             $('#bootstrap-table').bootstrapTable(options);
 
             //关联目的地
-            ajaxGet("article","/destinations/list", {}, function (data){
+            ajaxGet("article","/destinations/listAll", {}, function (data){
                 vue.dests = data.data;
             })
         },

@@ -8,7 +8,7 @@ var vue = new Vue({
         //初始化列表
         init:function (){
             var options = {
-                url: getServiceUrl("article") + "/regions/query",
+                url: getServiceUrl("article") + "/region/pageList",
                 contentType: "application/x-www-form-urlencoded",   //重要选项,必填
                 uniqueId: "id",                     //每一行的唯一标识，一般为主键列
                 striped : true, //是否显示行间隔色
@@ -32,10 +32,10 @@ var vue = new Vue({
                 queryParams:function (data){
                     var params = {};
                     if(data.limit){
-                        params.pageSize = data.limit;
+                        params.size = data.limit;
                     }
                     if(data.limit){
-                        params.currentPage = data.offset / data.limit + 1;
+                        params.current = data.offset / data.limit + 1;
                     }
                     params.keyword = $("#keyword").val();
 
@@ -91,7 +91,7 @@ var vue = new Vue({
 
 
             //关联目的地
-            ajaxGet("article","/destinations/list", {}, function (data){
+            ajaxGet("article","/destination/listAll", {}, function (data){
                 vue.dests = data.data;
             })
         },
@@ -110,7 +110,7 @@ var vue = new Vue({
         },
         showDests:function (id){
             //data.data = List<Destination>
-            ajaxGet("article", "/regions/"+id+"/destination", {},function (data){
+            ajaxGet("article", "/region/"+id+"/destinations", {},function (data){
                 var msg = '';
                 $.each(data.data, function (index, item){
                     msg += item.name + " ";
@@ -150,20 +150,20 @@ var vue = new Vue({
             });
         },
         addRegion:function (){
-            vue.showModel("/regions/save", "添加成功", "save");
+            vue.showModel("/region/saveOne", "添加成功", "save");
         },
         editRegion:function (id){
-            ajaxGet("article", "/regions/detail", {id:id}, function (data){
+            ajaxGet("article", "/region/detail", {id:id}, function (data){
                 vue.region = data.data
                 if(vue.region.refIds){
                     vue.region.refIds = vue.region.refIds.split(",")
                 }
-                vue.showModel("/regions/update", "编辑成功", "edit");
+                vue.showModel("/region/updateOne", "编辑成功", "edit");
             })
         },
         delete:function (id){
             layer.confirm('确认要删除吗？', function (index) {
-                ajaxPost("article", "/regions/delete/" + id, {}, function (data){
+                ajaxPost("article", "/region/deleteOne/" + id, {}, function (data){
                     layer.msg('已删除!', {icon: 1, time: 200}, function (){
                         location.reload();
                     });

@@ -36,7 +36,7 @@ var vue = new Vue({
             vue.dests = map.dests;
         })*/
 
-        ajaxGet("/destinations/list", {}, function (data) {
+        ajaxGet("/destination/listAll", {}, function (data) {
             vue.dests = data.data;
 
 
@@ -53,7 +53,7 @@ var vue = new Vue({
 
 
         //接口设计原则:一个接口一个功能
-        // 查询目的:  destinations/list
+        // 查询目的:  destinations/listAll
         // 数据回显:  travels/detail?id=
 
 

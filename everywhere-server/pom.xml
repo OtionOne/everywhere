@@ -12,7 +12,7 @@
     <artifactId>everywhere-server</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>everywhere-sever-user</module>
+        <module>everywhere-server-user</module>
         <module>everywhere-server-article</module>
     </modules>
 

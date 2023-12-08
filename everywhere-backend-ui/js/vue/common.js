@@ -3,16 +3,16 @@
 //api ip与端口
 var serverUrlMap = {
     member : "http://localhost:10002",
-    article : "http://localhost:8082",
+    article : "http://localhost:10003",
     data : "http://localhost:8083",
     comment : "http://localhost:8084",
     search : "http://localhost:8085",
-    gateway : "http://localhost:9000"
+    gateway : "http://localhost:10001"
 }
 
 function getServiceUrl(service){
-    return serverUrlMap[service]
-    //return serverUrlMap["gateway"] + "/" + service
+    // return serverUrlMap[service]
+    return serverUrlMap["gateway"] + "/" + service
 }
 
 
